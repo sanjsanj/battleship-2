@@ -15,7 +15,13 @@ describe Board do
     expect(subject.grid.size).to eq 100
   end
 
-  xit 'has value \'E\' for every square when created'
+  it 'has value \'E\' for every square when created' do
+    ('A'..'J').each do |letter|
+      (1..10).each do |number|
+        expect(subject.grid[(letter + number.to_s).to_s]).to eq 'E'
+      end
+    end
+  end
 
   it 'can place ship on grid' do
     subject.place_ship(ship)

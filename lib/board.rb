@@ -12,7 +12,7 @@ class Board
     @grid = {}
     ('A'..'J').each do |letter|
       (1..10).each do |number|
-        @grid[(letter + number.to_s).to_sym] = 'E'
+        @grid[(letter + number.to_s).to_s] = 'E'
       end
     end
     init_hit_grid
@@ -22,7 +22,7 @@ class Board
     @hit_grid = {}
     ('A'..'J').each do |letter|
       (1..10).each do |number|
-        @hit_grid[(letter + number.to_s).to_sym] = 'E'
+        @hit_grid[(letter + number.to_s).to_s] = 'E'
       end
     end
   end
