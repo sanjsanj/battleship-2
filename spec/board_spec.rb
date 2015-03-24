@@ -46,7 +46,15 @@ describe Board do
     expect(subject.place_shot('A1')).to eq 'Red'
   end
 
-  it 'can sink a ship' do
+  it 'can sink ship' do
+    puts 'Ship we are using: ' + ship.to_s
+    subject.place_ship(ship)
+    subject.sink_ship(ship)
+    expect(subject.hit_grid['A1']).to eq 'SunkShip'
+    expect(subject.hit_grid['A2']).to eq 'SunkShip'
+  end
+
+  it 'sinks ship when it has been hit enough times' do
     allow(ship).to receive(:hit).and_return('SUNK!')
     subject.place_ship(ship)
     subject.place_shot('A1')

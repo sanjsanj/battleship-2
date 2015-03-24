@@ -27,4 +27,10 @@ class Board
       @hit_grid[coord] = 'Red'
     end
   end
+
+  def sink_ship(ship)
+    @grid.each_pair do |coord, square_contents|
+      @hit_grid[coord] = 'SunkShip' if square_contents == ship
+    end
+  end
 end
