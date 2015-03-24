@@ -11,6 +11,12 @@ describe Board do
     expect(subject.grid.size).to eq 2
   end
 
+  it 'can be created with size 10 x 10' do
+    expect(subject.grid.size).to eq 100
+  end
+
+  xit 'has value \'E\' for every square when created'
+
   it 'can place ship on grid' do
     subject.place_ship(ship)
     expect(subject.grid['A1']).to eq ship
