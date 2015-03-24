@@ -8,23 +8,34 @@ describe Board do
   end
 
   it 'can place ship on grid' do
-    subject.place(ship)
+    subject.place_ship(ship)
     expect(subject.grid['A1']).to eq ship
     expect(subject.grid['A2']).to eq ship
   end
 
   it 'can check if a square is empty' do
     expect(subject.empty?('A1')).to eq true
-    subject.place(ship)
+    subject.place_ship(ship)
     expect(subject.empty?('A1')).to eq false
   end
 
   it 'can place a shot on an empty square' do
     subject.place_shot('A1')
-    expect(subject.grid['A1']).to eq 'E'
+    expect(subject.hit_grid['A1']).to eq 'White'
   end
 
-  xit 'can place a shot on an occupied square'
+  it 'can place a shot on an occupied square' do
+    subject.place_ship(ship)
+    subject.place_shot('A1')
+    expect(subject.hit_grid['A1']).to eq 'Red'
+  end
+
+  it 'raises error if shooting at coordinate that has already been shot at' do
+    subject.place_shot('A1')
+    expect { subject.place_shot('A1') }.to raise_error 'Square already shot at'
+    subject.place_ship(ship)
+    expect { subject.place_shot('A1') }.to raise_error 'Square already shot at'
+  end
 
   xit 'hits ship when placing a hit'
 
