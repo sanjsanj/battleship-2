@@ -1,3 +1,5 @@
+require 'capybara/rspec'
+
 feature 'MVP feature test' do
   scenario 'ship can be placed on board' do
     board.place ship
