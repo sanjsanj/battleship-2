@@ -17,4 +17,11 @@ describe Board do
     subject.hit('A1')
     expect(subject.grid['A1']).to eq 'hit'
   end
+
+  it 'knows when ship is sunk' do
+    subject.hit('A1')
+    subject.hit('A2')
+    expect(subject.grid['A1']).to eq 'sunk'
+    expect(subject.grid['A2']).to eq 'sunk'
+  end
 end

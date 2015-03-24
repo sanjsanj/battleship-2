@@ -10,4 +10,8 @@ class Board
   def place(ship)
     @grid = { 'A1' => ship, 'A2' => ship }
   end
+
+  def hit(coordinate)
+    @grid[coordinate] = 'hit'
+  end
 end
