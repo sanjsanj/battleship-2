@@ -16,10 +16,13 @@ class Board
     @grid[coord] == 'E'
   end
 
-  def place_shot(coord)
+  def place_shot(coord) # rubocop: disable all
     fail 'Square already shot at' if @hit_grid[coord] != 'E'
     if @grid[coord] == 'E'
       @hit_grid[coord] = 'White'
+    elsif @grid[coord].hit == 'SUNK!'
+      @grid[coord].hit
+      @hit_grid[coord] = 'SunkShip'
     else
       @hit_grid[coord] = 'Red'
     end
