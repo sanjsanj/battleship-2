@@ -11,10 +11,6 @@ class Board
     @grid = { 'A1' => ship, 'A2' => ship }
   end
 
-  def hit(coordinate)
-    @grid[coordinate] = 'hit'
-  end
-
   def empty?(coord)
     @grid[coord] == 'E'
   end

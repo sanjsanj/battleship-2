@@ -21,17 +21,9 @@ describe Board do
 
   xit 'can place a shot on an empty square'
 
-  it 'can place a shot on an occupied square' do
-    subject.hit('A1')
-    expect(subject.grid['A1']).to eq 'hit'
-  end
+  xit 'can place a shot on an occupied square'
 
   xit 'hits ship when placing a hit'
 
-  it 'knows when ship is sunk' do
-    subject.hit('A1')
-    subject.hit('A2')
-    expect(subject.grid['A1']).to eq 'sunk'
-    expect(subject.grid['A2']).to eq 'sunk'
-  end
+  xit 'knows when ship is sunk'
 end
