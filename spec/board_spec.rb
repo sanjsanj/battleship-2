@@ -9,11 +9,12 @@ describe Board do
 
   it 'can place ship on grid' do
     subject.place(ship)
-    expect(subject.grid('A1')).to eq ship
-    expect(subject.grid('A2')).to eq ship
+    expect(subject.grid['A1']).to eq ship
+    expect(subject.grid['A2']).to eq ship
   end
 
-  it 'can be created with a default size of 2 x 1' do
-    expect(subject.grid.size).to eq 2
+  it 'can place a hit' do
+    subject.hit('A1')
+    expect(subject.grid['A1']).to eq 'hit'
   end
 end
