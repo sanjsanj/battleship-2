@@ -10,5 +10,10 @@ class Ship
 
   def hit
     @hit_count += 1
+    'SUNK!' if sunk?
+  end
+
+  def sunk?
+    @hit_count >= @length
   end
 end
