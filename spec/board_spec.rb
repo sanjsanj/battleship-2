@@ -12,4 +12,8 @@ describe Board do
     expect(subject.grid('A1')).to eq ship
     expect(subject.grid('A2')).to eq ship
   end
+
+  it 'can be created with a default size of 2 x 1' do
+    expect(subject.grid.size).to eq 2
+  end
 end
