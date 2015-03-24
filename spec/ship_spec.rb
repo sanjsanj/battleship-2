@@ -9,4 +9,11 @@ describe Ship do
     subject.hit
     expect(subject.hit_count).to eq 1
   end
+
+  it 'can be sunk' do
+    subject.hit
+    expect(subject.hit).to eq 'SUNK!'
+    # subject.hit
+    expect(subject).to be_sunk
+  end
 end
