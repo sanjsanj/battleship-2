@@ -14,4 +14,8 @@ class Board
   def empty?(coord)
     @grid[coord] == 'E'
   end
+
+  def place_shot(coord)
+    coord
+  end
 end

@@ -19,7 +19,10 @@ describe Board do
     expect(subject.empty?('A1')).to eq false
   end
 
-  xit 'can place a shot on an empty square'
+  it 'can place a shot on an empty square' do
+    subject.place_shot('A1')
+    expect(subject.grid['A1']).to eq 'E'
+  end
 
   xit 'can place a shot on an occupied square'
 
