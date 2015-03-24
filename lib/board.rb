@@ -14,4 +14,8 @@ class Board
   def hit(coordinate)
     @grid[coordinate] = 'hit'
   end
+
+  def empty?(coord)
+    @grid[coord] == 'E'
+  end
 end
