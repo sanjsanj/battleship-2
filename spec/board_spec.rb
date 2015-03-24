@@ -55,13 +55,11 @@ describe Board do
   end
 
   it 'sinks ship when it has been hit enough times' do
-    allow(ship).to receive(:hit).and_return('SUNK!')
     subject.place_ship(ship)
     subject.place_shot('A1')
+    allow(ship).to receive(:hit).and_return('SUNK!')
     subject.place_shot('A2')
     expect(subject.hit_grid['A1']).to eq 'SunkShip'
     expect(subject.hit_grid['A2']).to eq 'SunkShip'
   end
-
-  xit 'knows when ship is sunk'
 end

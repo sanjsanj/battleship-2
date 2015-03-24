@@ -21,8 +21,7 @@ class Board
     if @grid[coord] == 'E'
       @hit_grid[coord] = 'White'
     elsif @grid[coord].hit == 'SUNK!'
-      @grid[coord].hit
-      @hit_grid[coord] = 'SunkShip'
+      sink_ship(@grid[coord])
     else
       @hit_grid[coord] = 'Red'
     end
