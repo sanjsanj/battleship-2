@@ -2,10 +2,29 @@
 class Board
   attr_reader :grid, :hit_grid
 
-  def initialize # grid_size = 2
-    @grid = { 'A1' => 'E', 'A2' => 'E' }
-    @hit_grid = { 'A1' => 'E', 'A2' => 'E' }
-    # Have not accounted for any grid size other than 2
+  # def initialize # grid_size = 2
+  #   @grid = { 'A1' => 'E', 'A2' => 'E' }
+  #   @hit_grid = { 'A1' => 'E', 'A2' => 'E' }
+  #   # Have not accounted for any grid size other than 2
+  # end
+
+  def initialize
+    @grid = {}
+    ('A'..'J').each do |letter|
+      (1..10).each do |number|
+        @grid[(letter + number.to_s).to_sym] = 'E'
+      end
+    end
+    init_hit_grid
+  end
+
+  def init_hit_grid
+    @hit_grid = {}
+    ('A'..'J').each do |letter|
+      (1..10).each do |number|
+        @hit_grid[(letter + number.to_s).to_sym] = 'E'
+      end
+    end
   end
 
   def place_ship(ship)

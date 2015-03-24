@@ -7,9 +7,9 @@ describe Board do
     allow(ship).to receive(:hit)
   end
 
-  it 'can be created (only with size of 2 x 1 for now)' do
-    expect(subject.grid.size).to eq 2
-  end
+  # it 'can be created (only with size of 2 x 1 for now)' do
+  #   expect(subject.grid.size).to eq 2
+  # end
 
   it 'can be created with size 10 x 10' do
     expect(subject.grid.size).to eq 100
