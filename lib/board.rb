@@ -17,6 +17,7 @@ class Board
   end
 
   def place_shot(coord)
+    fail 'Square already shot at' if @hit_grid[coord] != 'E'
     if @grid[coord] == 'E'
       @hit_grid[coord] = 'White'
     else

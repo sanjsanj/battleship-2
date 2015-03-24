@@ -2,6 +2,7 @@ require 'board'
 
 describe Board do
   let(:ship) { double :ship, ship_length: 2 }
+  let(:ship) { double :ship, status: 'Floating' }
 
   it 'can be created (only with size of 2 x 1 for now)' do
     expect(subject.grid.size).to eq 2
@@ -37,7 +38,15 @@ describe Board do
     expect { subject.place_shot('A1') }.to raise_error 'Square already shot at'
   end
 
-  xit 'hits ship when placing a hit'
+  it 'hits ship when placing a hit' do
+    subject.place_ship(ship)
+    expect(subject.place_shot('A1')).to eq 'Red'
+  end
 
-  xit 'knows when ship is sunk'
+  it 'knows when ship is sunk' do
+    subject.place_ship(ship)
+    subject.place_shot('A1')
+    subject.place_shot('A2')
+    expect(ship.status).to eq 'Sunk'
+  end
 end
